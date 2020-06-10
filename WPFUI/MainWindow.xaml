@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
+        FontSize="15pt"
         Title="Projekti" Height="768" Width="1024">
     <Grid>
         <Grid.RowDefinitions>
@@ -50,8 +51,31 @@
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
         </Grid>
 
+        <Grid Grid.Row="1" Grid.Column="1" Background="BurlyWood">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="BlueViolet"></Label>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="DarkViolet" BorderThickness="4">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding CurrentLocation.Name}"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding CurrentLocation.Description}"/>
+                </Grid>
+            </Border>
+        </Grid>
+        
+        
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory" Background="DarkOrange"></Label>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat / Movement" Background="Crimson"></Label>
         
