@@ -28,6 +28,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -47,7 +48,6 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Gold"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
-
         </Grid>
 
 
