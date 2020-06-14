@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         FontSize="15pt"
         Title="Projekti" Height="768" Width="1024">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -74,10 +79,61 @@
                 </Grid>
             </Border>
         </Grid>
-        
-        
+
+
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory" Background="DarkOrange"></Label>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat / Movement" Background="Crimson"></Label>
+
+        <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="255"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="1" Height="65" Width="65" Margin="1" Background="Firebrick" FontWeight="ExtraBold" 
+                        Click="OnClick_MoveUp" 
+                        Visibility="{Binding CanMoveUp, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Up" />
+                <Button Grid.Row="1" Grid.Column="2" Height="65" Width="65" Margin="1" 
+                        Background="Firebrick" 
+                        FontWeight="ExtraBold" 
+                        Click="OnClick_MoveRight"
+                        Visibility="{Binding CanMoveRight, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Right" />
+                <Button Grid.Row="2" Grid.Column="1" Height="65" Width="65" Margin="1" 
+                        Background="Firebrick" 
+                        FontWeight="ExtraBold" 
+                        Click="OnClick_MoveDown"
+                        Visibility="{Binding CanMoveDown, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Down" />
+                <Button Grid.Row="1" Grid.Column="0" Height="65" Width="65" Margin="1" 
+                        Background="Firebrick" 
+                        FontWeight="ExtraBold" 
+                        Click="OnClick_MoveLeft"
+                        Visibility="{Binding CanMoveLeft, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Left" />
+            </Grid>
+            
+        </Grid>
+        
         
     </Grid>
 </Window>

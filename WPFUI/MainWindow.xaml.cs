@@ -31,9 +31,25 @@ namespace WPFUI
             DataContext = gameSession;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void OnClick_MoveUp(object sender, RoutedEventArgs e)
         {
-            gameSession.CurrentPlayer.ExperiencePoints += 10;
+            gameSession.MoveUp();
         }
+
+        private void OnClick_MoveRight(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveRight();
+        }
+
+        private void OnClick_MoveDown(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveDown();
+        }
+
+        private void OnClick_MoveLeft(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveLeft();
+        }
+
     }
 }
