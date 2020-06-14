@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Engine.Models;
 using Engine.Factories;
-using System.ComponentModel;
 
 namespace Engine.Models.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotificationClass
     {
         private Location currentLocation;
 
@@ -22,12 +21,12 @@ namespace Engine.Models.ViewModels
             set
             {
                 currentLocation = value;
-                OnPropertyChanged("CurrentLocation");
+                OnPropertyChanged(nameof(CurrentLocation));
 
-                OnPropertyChanged("CanMoveUp");
-                OnPropertyChanged("CanMoveRight");
-                OnPropertyChanged("CanMoveDown");
-                OnPropertyChanged("CanMoveLeft");
+                OnPropertyChanged(nameof(CanMoveUp));
+                OnPropertyChanged(nameof(CanMoveRight));
+                OnPropertyChanged(nameof(CanMoveDown));
+                OnPropertyChanged(nameof(CanMoveLeft));
             }
         }
 
@@ -87,13 +86,6 @@ namespace Engine.Models.ViewModels
         public void MoveLeft()
         {
             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
    
