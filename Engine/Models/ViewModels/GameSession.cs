@@ -65,6 +65,10 @@ namespace Engine.Models.ViewModels
             CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
+
+            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1));
+            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(2));
+            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(666));
         }
 
         public void MoveUp()

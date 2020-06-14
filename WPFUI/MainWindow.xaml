@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        FontSize="15pt"
+        FontSize="10pt"
         Title="Projekti" Height="768" Width="1024">
 
     <Window.Resources>
@@ -80,8 +80,25 @@
             </Border>
         </Grid>
 
-
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory" Background="DarkOrange"></Label>
+        <Grid Grid.Row="2" Grid.Column="0"
+              Background="BurlyWood">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"
+                                                Binding="{Binding Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Price"
+                                                Binding="{Binding Price}"
+                                                Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
             
@@ -108,23 +125,23 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="0" Grid.Column="1" Height="65" Width="65" Margin="1" Background="Firebrick" FontWeight="ExtraBold" 
+                <Button Grid.Row="0" Grid.Column="1" Height="65" Width="65" Margin="1" Background="Firebrick" FontWeight="ExtraBold" FontSize="20"
                         Click="OnClick_MoveUp" 
                         Visibility="{Binding CanMoveUp, Converter={StaticResource BooleanToVisibility}}"
                         Content="Up" />
-                <Button Grid.Row="1" Grid.Column="2" Height="65" Width="65" Margin="1" 
+                <Button Grid.Row="1" Grid.Column="2" Height="65" Width="65" Margin="1" FontSize="20"
                         Background="Firebrick" 
                         FontWeight="ExtraBold" 
                         Click="OnClick_MoveRight"
                         Visibility="{Binding CanMoveRight, Converter={StaticResource BooleanToVisibility}}"
                         Content="Right" />
-                <Button Grid.Row="2" Grid.Column="1" Height="65" Width="65" Margin="1" 
+                <Button Grid.Row="2" Grid.Column="1" Height="65" Width="65" Margin="1" FontSize="20"
                         Background="Firebrick" 
                         FontWeight="ExtraBold" 
                         Click="OnClick_MoveDown"
                         Visibility="{Binding CanMoveDown, Converter={StaticResource BooleanToVisibility}}"
                         Content="Down" />
-                <Button Grid.Row="1" Grid.Column="0" Height="65" Width="65" Margin="1" 
+                <Button Grid.Row="1" Grid.Column="0" Height="65" Width="65" Margin="1" FontSize="20"
                         Background="Firebrick" 
                         FontWeight="ExtraBold" 
                         Click="OnClick_MoveLeft"
